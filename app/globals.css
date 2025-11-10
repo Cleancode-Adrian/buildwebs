@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Poppins', system-ui, sans-serif;
+  background-color: #0D0D0D;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3B82F6;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00FFFF;
+}
+
+/* Selection */
+::selection {
+  background-color: #3B82F6;
+  color: white;
+}
+
+/* Gradient text utility - improved contrast */
+.gradient-text {
+  background: linear-gradient(135deg, #60A5FA 0%, #22D3EE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated background grid */
+.animated-grid {
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: grid-move 20s linear infinite;
+}
+
+@keyframes grid-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+/* Glow effects */
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.glow-turquoise {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+}
+
+/* Button styles - WCAG 2.2 compliant */
+.btn-primary {
+  @apply px-8 py-4 bg-electric-blue-light text-dark-bg font-bold rounded-lg hover:bg-electric-blue transition-all duration-300 hover:shadow-lg hover:shadow-electric-blue/50;
+}
+
+.btn-secondary {
+  @apply px-8 py-4 border-2 border-electric-blue-light text-electric-blue-light font-bold rounded-lg hover:bg-electric-blue-light hover:text-dark-bg transition-all duration-300;
+}
+
+/* Blog content styling - MEGA spacing dla czytelności */
+article p {
+  margin-bottom: 2.5em !important;
+  line-height: 2.2 !important;
+  font-size: 1.125rem !important;
+  letter-spacing: 0.015em !important;
+  color: #d1d5db !important;
+}
+
+article h2 {
+  margin-top: 3em !important;
+  margin-bottom: 1.5em !important;
+  padding-top: 1em !important;
+  font-size: 2.25rem !important;
+  font-weight: bold !important;
+  letter-spacing: -0.02em !important;
+  color: #ffffff !important;
+}
+
+article h3 {
+  margin-top: 2.5em !important;
+  margin-bottom: 1.25em !important;
+  padding-top: 0.75em !important;
+  font-size: 1.75rem !important;
+  font-weight: bold !important;
+  color: #ffffff !important;
+}
+
+article ul,
+article ol {
+  margin-top: 1.5em !important;
+  margin-bottom: 2.5em !important;
+  padding-left: 2rem !important;
+}
+
+article li {
+  margin-bottom: 1em !important;
+  line-height: 2 !important;
+  padding-left: 0.75em !important;
+  color: #d1d5db !important;
+}
+
+article strong {
+  font-weight: 700 !important;
+  color: #ffffff !important;
+}
+
+article a {
+  color: #60A5FA !important;
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+  text-decoration-color: rgba(96, 165, 250, 0.4) !important;
+  text-underline-offset: 4px !important;
+  transition: all 0.3s ease !important;
+}
+
+article a:hover {
+  color: #22D3EE !important;
+  text-decoration-color: rgba(34, 211, 238, 0.6) !important;
+}
+
