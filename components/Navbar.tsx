@@ -89,25 +89,27 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden py-4 space-y-4"
+            className="lg:hidden py-6 space-y-3 bg-dark-bg/95 backdrop-blur-md rounded-xl mt-4 shadow-xl border border-gray-800"
           >
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-gray-300 hover:text-electric-blue transition-colors duration-300 font-medium py-2"
+                className="block text-gray-300 hover:text-electric-blue transition-colors duration-300 font-medium py-2 px-4"
               >
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="#contact"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block btn-primary text-center"
-            >
-              Get Started
-            </Link>
+            <div className="px-4 pt-2">
+              <Link
+                href="#contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block btn-primary text-center"
+              >
+                Get Started
+              </Link>
+            </div>
           </motion.div>
         )}
       </div>
