@@ -316,8 +316,8 @@ export default function BlogPage() {
                 </div>
 
                 {/* Title */}
-                <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 lg:mb-4 group-hover:text-electric-blue transition-colors leading-tight">
-                  <Link href={`/blog/${post.slug}`}>
+                <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 sm:mb-2.5 lg:mb-3 group-hover:text-electric-blue transition-colors leading-tight">
+                  <Link href={`/blog/${post.slug}`} className="no-underline">
                     {post.title}
                   </Link>
                 </h2>

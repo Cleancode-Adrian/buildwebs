@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  swcMinify: true,
   
   // Image optimization
   images: {
@@ -13,6 +14,22 @@ const nextConfig = {
   // Performance optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+  },
+
+  // Optimize imports for better tree-shaking
+  modularizeImports: {
+    'react-icons/hi': {
+      transform: 'react-icons/hi/{{member}}',
+    },
+    'react-icons/fa': {
+      transform: 'react-icons/fa/{{member}}',
+    },
+  },
+
+  // Experimental features for better performance
+  experimental: {
+    optimizeCss: true,
+    optimizePackageImports: ['react-icons', 'framer-motion'],
   },
 
   // Headers for security and caching

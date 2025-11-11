@@ -53,7 +53,7 @@ export default function CookieBanner() {
                         to understand how visitors use our site. We <strong className="text-white">do not use</strong> advertising
                         or tracking cookies. By clicking "Accept", you consent to our use of cookies.
                         <Link href="/privacy" className="text-electric-blue-light hover:text-neon-turquoise underline ml-1 font-semibold">
-                          Learn more
+                          Read our Privacy Policy
                         </Link>
                       </p>
                     </div>
