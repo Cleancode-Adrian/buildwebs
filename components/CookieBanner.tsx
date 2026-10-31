@@ -4,8 +4,10 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HiX } from 'react-icons/hi'
+import { localePath, type Locale } from '@/lib/i18n'
+import type { Dictionary } from '@/lib/dictionaries'
 
-export default function CookieBanner() {
+export default function CookieBanner({ lang, t }: { lang: Locale; t: Dictionary['cookies'] }) {
   const [showBanner, setShowBanner] = useState(false)
 
   useEffect(() => {
@@ -19,6 +21,7 @@ export default function CookieBanner() {
 
   const acceptCookies = () => {
     localStorage.setItem('cookies-accepted', 'true')
+    window.dispatchEvent(new Event('cookie-consent'))
     setShowBanner(false)
   }
 
@@ -35,56 +38,55 @@ export default function CookieBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6"
+          role="region"
+          aria-labelledby="cookie-title"
+          className="fixed bottom-0 left-0 right-0 z-50 p-3 md:p-6"
         >
           <div className="max-w-7xl mx-auto">
-            <div className="bg-dark-card border border-electric-blue/30 rounded-2xl shadow-2xl shadow-electric-blue/10 p-6 md:p-8">
-              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="relative bg-dark-card border border-electric-blue/30 rounded-2xl shadow-2xl shadow-electric-blue/10 p-4 pr-12 md:p-8">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6">
                 {/* Content */}
                 <div className="flex-1">
-                  <div className="flex items-start gap-4">
-                    <div className="text-3xl">🍪</div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white mb-2">
-                        We Use Cookies
-                      </h3>
-                      <p className="text-gray-300 text-sm leading-relaxed">
-                        We use essential cookies for website functionality and analytics cookies (Google Analytics)
-                        to understand how visitors use our site. We <strong className="text-white">do not use</strong> advertising
-                        or tracking cookies. By clicking "Accept", you consent to our use of cookies.
-                        <Link href="/privacy" className="text-electric-blue-light hover:text-neon-turquoise underline ml-1 font-semibold">
-                          Read our Privacy Policy
-                        </Link>
-                      </p>
-                    </div>
-                  </div>
+                  <h2 id="cookie-title" className="text-base md:text-xl font-bold text-white mb-1 md:mb-2">
+                    <span aria-hidden="true">🍪 </span>
+                    {t.title}
+                  </h2>
+                  <p className="text-gray-300 text-xs md:text-sm leading-relaxed">
+                    {t.text}{' '}
+                    <Link href={localePath(lang, '/privacy')} className="text-electric-blue-light hover:text-neon-turquoise underline font-semibold">
+                      {t.policy}
+                    </Link>
+                  </p>
                 </div>
 
-                {/* Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                {/* Buttons — equal prominence for accept and reject (GDPR) */}
+                <div className="grid grid-cols-2 gap-3 w-full md:w-auto">
                   <button
+                    type="button"
                     onClick={acceptCookies}
-                    className="px-6 py-3 bg-electric-blue-light text-dark-bg font-bold rounded-lg hover:bg-electric-blue transition-all duration-300 hover:shadow-lg hover:shadow-electric-blue/50 whitespace-nowrap"
+                    className="px-4 md:px-6 py-2.5 md:py-3 bg-electric-blue-light text-dark-bg font-bold rounded-lg hover:bg-electric-blue transition-all duration-300 whitespace-nowrap"
                   >
-                    Accept Cookies
+                    {t.accept}
                   </button>
                   <button
+                    type="button"
                     onClick={rejectCookies}
-                    className="px-6 py-3 border-2 border-gray-600 text-gray-200 font-semibold rounded-lg hover:border-electric-blue-light hover:text-white hover:bg-dark-card transition-all duration-300 whitespace-nowrap"
+                    className="px-4 md:px-6 py-2.5 md:py-3 border-2 border-gray-400 text-gray-100 font-semibold rounded-lg hover:border-electric-blue-light hover:text-white transition-all duration-300 whitespace-nowrap"
                   >
-                    Reject
+                    {t.reject}
                   </button>
                 </div>
-
-                {/* Close button */}
-                <button
-                  onClick={() => setShowBanner(false)}
-                  className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
-                  aria-label="Close"
-                >
-                  <HiX className="text-2xl" />
-                </button>
               </div>
+
+              {/* Close button (24×24 px minimum target, WCAG 2.5.8) */}
+              <button
+                type="button"
+                onClick={() => setShowBanner(false)}
+                className="absolute top-2 right-2 md:top-4 md:right-4 p-2 text-gray-300 hover:text-white transition-colors"
+                aria-label={t.close}
+              >
+                <HiX className="text-2xl" aria-hidden="true" />
+              </button>
             </div>
           </div>
         </motion.div>

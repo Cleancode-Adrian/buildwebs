@@ -1,0 +1,39 @@
+# BuildWebs.eu
+
+> EU-based web studio building fast WordPress websites and WooCommerce online stores for small businesses across the European Union, with website care plans and WCAG 2.2 / European Accessibility Act (EAA, in Germany: BFSG) accessibility services. Fixed prices in EUR, English and German communication, CET time zone. Operated by CleanCode Adrian Sadowski (Poland), known in Poland as CleanCode (cleancodeas.pl). Site available in English (/) and German (/de).
+
+## Services
+
+- [Fast Business Websites](https://buildwebs.eu/services/business-websites): custom WordPress company websites, mobile-first, SEO-ready, multilingual on request. From €800, 2–4 weeks. German: https://buildwebs.eu/de/services/business-websites
+- [WooCommerce Online Stores](https://buildwebs.eu/services/woocommerce-stores): stores with Mollie/Stripe payments (iDEAL, Bancontact, Klarna, SEPA), EU VAT, shipping integrations, migrations from Shopify/Wix. From €1,500. German: https://buildwebs.eu/de/services/woocommerce-stores
+- [Website Care, Fixes & Rescue](https://buildwebs.eu/services/website-care): WordPress maintenance plans (€49 / €99 / €199 per month), hacked-site recovery, taking over sites from unresponsive developers, migrations, speed optimisation. One-off fixes from €290. German: https://buildwebs.eu/de/services/website-care
+- [Web Accessibility (WCAG & EAA)](https://buildwebs.eu/services/web-accessibility): WCAG 2.2 AA audits from €490, fixes and accessibility statements. German: https://buildwebs.eu/de/services/web-accessibility
+- [European Accessibility Act for WooCommerce](https://buildwebs.eu/european-accessibility-act-woocommerce): EAA scope, common WooCommerce accessibility issues, free mini-check of 3 pages. German (BFSG): https://buildwebs.eu/de/european-accessibility-act-woocommerce
+
+## About
+
+- [About](https://buildwebs.eu/about): 5+ years of experience, 30+ clients, 5.0 Google rating (18 reviews).
+- [Contact](https://buildwebs.eu/contact): contact@buildwebs.eu — fixed quote within 24 hours.
+- [Imprint](https://buildwebs.eu/imprint), [Privacy policy](https://buildwebs.eu/privacy)
+
+## Guides (English)
+
+- [The most common WordPress problems found in website audits](https://buildwebs.eu/blog/common-wordpress-problems-website-audit)
+- [Your web developer disappeared? How to regain control of your website](https://buildwebs.eu/blog/web-developer-disappeared-regain-control)
+- [Accessibility errors that fail online stores under the EAA](https://buildwebs.eu/blog/online-store-accessibility-errors-eaa)
+- [Why fast websites win](https://buildwebs.eu/blog/why-fast-websites-win)
+- [SEO checklist](https://buildwebs.eu/blog/seo-checklist-2025)
+- [WordPress vs Laravel](https://buildwebs.eu/blog/wordpress-vs-laravel)
+- [How to choose a web design agency](https://buildwebs.eu/blog/how-to-choose-web-design-agency-netherlands)
+- [Local SEO in the Netherlands](https://buildwebs.eu/blog/local-seo-netherlands)
+
+## Ratgeber (Deutsch)
+
+- [Die häufigsten WordPress-Probleme aus Website-Audits](https://buildwebs.eu/de/blog/haeufige-wordpress-probleme)
+- [Webentwickler nicht erreichbar: Zugriff auf die Webseite zurückbekommen](https://buildwebs.eu/de/blog/webentwickler-nicht-erreichbar-zugriff-webseite)
+- [Barrierefreiheit im Onlineshop: die häufigsten Fehler nach dem BFSG](https://buildwebs.eu/de/blog/barrierefreiheit-fehler-onlineshop-bfsg)
+- [Warum schnelle Webseiten gewinnen](https://buildwebs.eu/de/blog/schnelle-webseiten)
+- [SEO-Checkliste für kleine Unternehmen](https://buildwebs.eu/de/blog/seo-checkliste)
+- [WordPress oder Laravel](https://buildwebs.eu/de/blog/wordpress-oder-laravel)
+- [Webdesign-Agentur finden](https://buildwebs.eu/de/blog/webdesign-agentur-finden)
+- [Lokales SEO](https://buildwebs.eu/de/blog/lokales-seo)

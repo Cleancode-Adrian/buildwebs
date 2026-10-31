@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+/* Fonts are self-hosted via next/font (no requests to Google servers — GDPR) */
 
 @tailwind base;
 @tailwind components;
@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', 'Poppins', system-ui, sans-serif;
+  font-family: system-ui, sans-serif;
   background-color: #0D0D0D;
   color: #ffffff;
   overflow-x: hidden;
@@ -59,16 +59,6 @@ body {
     linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
-  animation: grid-move 20s linear infinite;
-}
-
-@keyframes grid-move {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 50px 50px;
-  }
 }
 
 /* Glow effects */
@@ -218,3 +208,52 @@ article a:hover {
   text-decoration: underline !important;
 }
 
+
+/* Long compound words (e.g. German "Barrierefreiheitsstärkungsgesetz") must not overflow on mobile */
+h1, h2, h3, p, a, li {
+  overflow-wrap: break-word;
+}
+:lang(de) h1, :lang(de) h2, :lang(de) h3 {
+  hyphens: auto;
+}
+
+/* Visible keyboard focus (WCAG 2.4.7 / 2.4.11) */
+:focus-visible {
+  outline: 3px solid #00FFFF;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Skip link (WCAG 2.4.1) */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: #60A5FA;
+  color: #0D0D0D;
+  font-weight: 700;
+  border-radius: 0.5rem;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Respect the OS "reduce motion" setting */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Links inside running text are underlined, not only coloured (WCAG 1.4.1) */
+main :is(p, li, td) > a:not([class*="btn"]) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

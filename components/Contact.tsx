@@ -5,8 +5,15 @@ import { motion } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 import { HiMail, HiLocationMarker, HiCheckCircle, HiXCircle } from 'react-icons/hi'
 import { FaWhatsapp } from 'react-icons/fa'
+import { site } from '@/lib/site'
+import { localePath, type Locale } from '@/lib/i18n'
+import type { Dictionary } from '@/lib/dictionaries'
 
-export default function Contact() {
+type Props = { lang: Locale; t: Dictionary['contact']; headingLevel?: 'h1' | 'h2' }
+
+export default function Contact({ lang, t, headingLevel = 'h2' }: Props) {
+  const Heading = headingLevel
+  const SubHeading = headingLevel === 'h1' ? 'h2' : 'h3'
   const formRef = useRef<HTMLFormElement>(null)
   const [formData, setFormData] = useState({
     name: '',
@@ -35,65 +42,58 @@ export default function Contact() {
     setSubmitStatus('idle')
 
     try {
-      // EmailJS configuration
-      // Replace these with your actual EmailJS credentials:
-      // 1. Go to https://www.emailjs.com/
-      // 2. Create an account and get your Public Key
-      // 3. Create an email service and template
-      // 4. Replace the IDs below
+      // EmailJS keys come from .env.local (see .env.example)
+      const { serviceId, templateId, publicKey } = site.emailjs
+      if (!serviceId || !templateId || !publicKey) throw new Error('EmailJS is not configured')
 
       await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        serviceId,
+        templateId,
         {
           from_name: formData.name,
           from_email: formData.email,
           company: formData.company,
           message: formData.message,
-          to_email: 'contact@buildwebs.eu',
+          language: lang,
+          to_email: site.email,
         },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+        publicKey
       )
 
       setSubmitStatus('success')
       setFormData({ name: '', email: '', company: '', message: '', privacyAccepted: false })
-
-      // For development/testing without EmailJS configured:
-      // setSubmitStatus('success')
-      // console.log('Form data:', formData)
 
     } catch (error) {
       console.error('Email send error:', error)
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
-      setTimeout(() => setSubmitStatus('idle'), 5000)
     }
   }
 
   const contactInfo = [
     {
       icon: HiMail,
-      title: 'Email',
-      content: 'contact@buildwebs.eu',
-      link: 'mailto:contact@buildwebs.eu',
+      title: t.emailLabel,
+      content: site.email,
+      link: `mailto:${site.email}`,
     },
     {
       icon: FaWhatsapp,
-      title: 'WhatsApp',
-      content: '+48 724 441 843',
-      link: 'https://wa.me/48724441843',
+      title: t.whatsappLabel,
+      content: t.whatsappText,
+      link: site.whatsapp,
     },
     {
       icon: HiLocationMarker,
-      title: 'Location',
-      content: 'Rotterdam, Netherlands',
+      title: t.locationLabel,
+      content: t.location,
       link: null,
     },
   ]
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-dark-bg relative overflow-hidden">
+    <section id="contact" className="py-20 md:py-32 bg-dark-bg relative overflow-hidden scroll-mt-20">
       {/* Background decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-neon-turquoise/5 rounded-full blur-3xl" />
 
@@ -106,19 +106,19 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Ready to Build <span className="gradient-text">Something Great?</span>
-          </h2>
+          <Heading className="text-4xl md:text-6xl font-bold mb-6">
+            {t.titleBefore} <span className="gradient-text">{t.titleHighlight}</span>
+          </Heading>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Let's discuss your project. We'll get back within 24 hours.
+            {t.subtitle}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
@@ -126,57 +126,60 @@ export default function Contact() {
               {/* Name */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                  Your Name *
+                  {t.name}
                 </label>
                 <input
                   type="text"
                   id="name"
+                  autoComplete="name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-dark-card border border-gray-700 rounded-lg text-white focus:outline-none focus:border-electric-blue-light focus:ring-2 focus:ring-electric-blue-light/20 transition-colors"
-                  placeholder="John Doe"
+                  placeholder={t.namePlaceholder}
                 />
               </div>
 
               {/* Email */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                  Email Address *
+                  {t.email}
                 </label>
                 <input
                   type="email"
                   id="email"
+                  autoComplete="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-dark-card border border-gray-700 rounded-lg text-white focus:outline-none focus:border-electric-blue-light focus:ring-2 focus:ring-electric-blue-light/20 transition-colors"
-                  placeholder="john@company.com"
+                  placeholder={t.emailPlaceholder}
                 />
               </div>
 
               {/* Company */}
               <div>
                 <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
-                  Company Name
+                  {t.company}
                 </label>
                 <input
                   type="text"
                   id="company"
+                  autoComplete="organization"
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-dark-card border border-gray-700 rounded-lg text-white focus:outline-none focus:border-electric-blue-light focus:ring-2 focus:ring-electric-blue-light/20 transition-colors"
-                  placeholder="Your Company"
+                  placeholder={t.companyPlaceholder}
                 />
               </div>
 
               {/* Message */}
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                  Project Details *
+                  {t.message}
                 </label>
                 <textarea
                   id="message"
@@ -186,7 +189,7 @@ export default function Contact() {
                   required
                   rows={6}
                   className="w-full px-4 py-3 bg-dark-card border border-gray-700 rounded-lg text-white focus:outline-none focus:border-electric-blue transition-colors resize-none"
-                  placeholder="Tell us about your project..."
+                  placeholder={t.messagePlaceholder}
                 />
               </div>
 
@@ -199,18 +202,18 @@ export default function Contact() {
                   checked={formData.privacyAccepted}
                   onChange={handleChange}
                   required
-                  className="mt-1 w-5 h-5 bg-dark-card border-2 border-gray-700 rounded text-electric-blue focus:ring-electric-blue focus:ring-2"
+                  className="mt-1 w-5 h-5 bg-dark-card border-2 border-gray-700 rounded text-electric-blue-light focus:ring-electric-blue focus:ring-2"
                 />
                 <label htmlFor="privacyAccepted" className="text-sm text-gray-200 leading-relaxed">
-                  I agree to the processing of my personal data in accordance with the{' '}
+                  {t.consentBefore}{' '}
                   <a
-                    href="/privacy"
+                    href={localePath(lang, '/privacy')}
                     target="_blank"
                     className="text-electric-blue-light hover:text-neon-turquoise underline font-semibold"
                   >
-                    Privacy Policy
-                  </a>.
-                  I understand that my data will be used only to respond to my inquiry and for website analytics (Google Analytics). *
+                    {t.consentLink}
+                  </a>{' '}
+                  {t.consentAfter}
                 </label>
               </div>
 
@@ -222,61 +225,53 @@ export default function Contact() {
                   (isSubmitting || !formData.privacyAccepted) ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? t.sending : t.send}
               </button>
 
-              {/* Status Messages */}
-              {submitStatus === 'success' && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center gap-2 p-4 bg-green-500/10 border border-green-500/50 rounded-lg text-green-300 font-semibold"
-                >
-                  <HiCheckCircle className="text-2xl" />
-                  <span>Message sent successfully! We'll get back to you soon.</span>
-                </motion.div>
-              )}
-
-              {submitStatus === 'error' && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center gap-2 p-4 bg-red-500/10 border border-red-500/50 rounded-lg text-red-300 font-semibold"
-                >
-                  <HiXCircle className="text-2xl" />
-                  <span>Something went wrong. Please try again or email us directly.</span>
-                </motion.div>
-              )}
+              {/* Status Messages — live regions stay in the DOM so screen readers announce changes (WCAG 4.1.3) */}
+              <div role="status" aria-live="polite">
+                {submitStatus === 'success' && (
+                  <div className="flex items-center gap-2 p-4 bg-green-500/10 border border-green-500/50 rounded-lg text-green-300 font-semibold">
+                    <HiCheckCircle className="text-2xl flex-shrink-0" aria-hidden="true" />
+                    <span>{t.success}</span>
+                  </div>
+                )}
+              </div>
+              <div role="alert">
+                {submitStatus === 'error' && (
+                  <div className="flex items-center gap-2 p-4 bg-red-500/10 border border-red-500/50 rounded-lg text-red-300 font-semibold">
+                    <HiXCircle className="text-2xl flex-shrink-0" aria-hidden="true" />
+                    <span>{t.error}</span>
+                  </div>
+                )}
+              </div>
             </form>
           </motion.div>
 
           {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
             <div className="bg-dark-card p-8 rounded-2xl border border-gray-800">
-              <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
-              <p className="text-gray-400 mb-8 leading-relaxed">
-                Have a question or want to discuss your project? We're here to help.
-                Reach out through the form or use any of the contact methods below.
-              </p>
+              <SubHeading className="text-2xl font-bold mb-6">{t.infoTitle}</SubHeading>
+              <p className="text-gray-400 mb-8 leading-relaxed">{t.infoText}</p>
 
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <info.icon className="text-2xl text-electric-blue" />
+                      <info.icon className="text-2xl text-electric-blue-light" aria-hidden="true" />
                     </div>
                     <div>
-                      <div className="text-sm text-gray-500 mb-1">{info.title}</div>
+                      <div className="text-sm text-gray-400 mb-1">{info.title}</div>
                       {info.link ? (
                         <a
                           href={info.link}
-                          className="text-white hover:text-electric-blue transition-colors"
+                          className="text-white hover:text-electric-blue-light transition-colors"
                         >
                           {info.content}
                         </a>
@@ -287,28 +282,29 @@ export default function Contact() {
                   </div>
                 ))}
               </div>
+
+              {site.bookingUrl && (
+                <a
+                  href={site.bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary block text-center mt-8"
+                >
+                  {t.bookCall}
+                </a>
+              )}
             </div>
 
             {/* Additional Info Card */}
             <div className="bg-gradient-to-br from-electric-blue/10 to-neon-turquoise/10 p-8 rounded-2xl border border-electric-blue/30">
-              <h4 className="text-xl font-bold mb-4">Why Choose BuildWebs?</h4>
+              <SubHeading className="text-xl font-bold mb-4">{t.whyTitle}</SubHeading>
               <ul className="space-y-3 text-gray-300">
-                <li className="flex items-start gap-3">
-                  <HiCheckCircle className="text-neon-turquoise text-xl flex-shrink-0 mt-0.5" />
-                  <span>Fast turnaround times</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <HiCheckCircle className="text-neon-turquoise text-xl flex-shrink-0 mt-0.5" />
-                  <span>Transparent pricing, no hidden fees</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <HiCheckCircle className="text-neon-turquoise text-xl flex-shrink-0 mt-0.5" />
-                  <span>Ongoing support and maintenance</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <HiCheckCircle className="text-neon-turquoise text-xl flex-shrink-0 mt-0.5" />
-                  <span>Proven track record across Europe</span>
-                </li>
+                {t.why.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <HiCheckCircle className="text-neon-turquoise text-xl flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </motion.div>

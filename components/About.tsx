@@ -1,27 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { HiLightningBolt, HiCode, HiTrendingUp } from 'react-icons/hi'
+import { HiLightningBolt, HiChatAlt2, HiCurrencyEuro } from 'react-icons/hi'
+import type { Dictionary } from '@/lib/dictionaries'
 
-export default function About() {
-  const features = [
-    {
-      icon: HiLightningBolt,
-      title: 'Performance First',
-      description: 'Lightning-fast, SEO-optimized code. We ensure your website loads in under 2 seconds for the best user experience.',
-    },
-    {
-      icon: HiCode,
-      title: 'Full Stack Expertise',
-      description: 'Laravel, React, WordPress, Tailwind, and Bootstrap. We master the complete technology stack.',
-    },
-    {
-      icon: HiTrendingUp,
-      title: 'Marketing-Driven',
-      description: 'SEO, ads, and email marketing built in from day one. Your website will attract and convert customers.',
-    },
-  ]
+const icons = [HiCurrencyEuro, HiChatAlt2, HiLightningBolt]
 
+export default function About({ t }: { t: Dictionary['about'] }) {
   return (
     <section id="about" className="py-20 md:py-32 bg-dark-secondary relative overflow-hidden">
       {/* Background decoration */}
@@ -37,34 +22,33 @@ export default function About() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Your Partner in <span className="gradient-text">Digital Growth</span>
+            {t.titleBefore} <span className="gradient-text">{t.titleHighlight}</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            At BuildWebs, we combine clean code, strong UX design, and marketing strategy.
-            Based in Europe, we help Dutch and EU businesses create fast, optimized, and
-            high-converting websites.
-          </p>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">{t.intro}</p>
         </motion.div>
 
         {/* Feature Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              whileHover={{ y: -10 }}
-              className="bg-dark-card p-8 rounded-2xl border border-gray-800 hover:border-electric-blue/50 transition-all duration-300 card-hover"
-            >
-              <div className="w-16 h-16 bg-electric-blue/10 rounded-xl flex items-center justify-center mb-6">
-                <feature.icon className="text-4xl text-electric-blue" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-              <p className="text-gray-400 leading-relaxed">{feature.description}</p>
-            </motion.div>
-          ))}
+          {t.features.map((feature, index) => {
+            const Icon = icons[index]
+            return (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2, duration: 0.6 }}
+                whileHover={{ y: -10 }}
+                className="bg-dark-card p-8 rounded-2xl border border-gray-800 hover:border-electric-blue/50 transition-all duration-300 card-hover"
+              >
+                <div className="w-16 h-16 bg-electric-blue/10 rounded-xl flex items-center justify-center mb-6">
+                  <Icon className="text-4xl text-electric-blue-light" aria-hidden="true" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
+                <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+              </motion.div>
+            )
+          })}
         </div>
 
         {/* Additional Info */}
@@ -77,8 +61,7 @@ export default function About() {
         >
           <div className="inline-block px-8 py-4 bg-gradient-to-r from-electric-blue/10 to-neon-turquoise/10 border border-electric-blue/30 rounded-2xl">
             <p className="text-lg text-gray-300">
-              <span className="text-neon-turquoise font-semibold">Trusted by 15+ European businesses</span>
-              {' '}to deliver exceptional web experiences
+              <span className="text-neon-turquoise font-semibold">{t.badgeStrong}</span> {t.badgeRest}
             </p>
           </div>
         </motion.div>
@@ -86,4 +69,3 @@ export default function About() {
     </section>
   )
 }
-
