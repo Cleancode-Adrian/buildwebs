@@ -17,20 +17,12 @@ Open [http://localhost:3000](http://localhost:3000)
 - TypeScript
 - TailwindCSS
 - Framer Motion
-- EmailJS
+- Nodemailer (contact form via own SMTP mailbox)
 
 ## Configuration
 
-### EmailJS (Contact Form)
-Update `components/Contact.tsx` (line ~40):
-```typescript
-await emailjs.send(
-  'YOUR_SERVICE_ID',
-  'YOUR_TEMPLATE_ID',
-  { ... },
-  'YOUR_PUBLIC_KEY'
-)
-```
+### Contact form (SMTP)
+The form posts to `app/api/contact/route.ts`, which sends mail through the SMTP mailbox configured in `.env.local` (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `CONTACT_TO`). See `.env.example`.
 
 ### Google Analytics
 Update `app/layout.tsx` (line 65, 76):

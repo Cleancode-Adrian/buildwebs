@@ -2,7 +2,6 @@
 
 import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
-import emailjs from '@emailjs/browser'
 import { HiMail, HiLocationMarker, HiCheckCircle, HiXCircle } from 'react-icons/hi'
 import { FaWhatsapp } from 'react-icons/fa'
 import { site } from '@/lib/site'
@@ -15,6 +14,7 @@ export default function Contact({ lang, t, headingLevel = 'h2' }: Props) {
   const Heading = headingLevel
   const SubHeading = headingLevel === 'h1' ? 'h2' : 'h3'
   const formRef = useRef<HTMLFormElement>(null)
+  const honeypotRef = useRef<HTMLInputElement>(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -42,23 +42,13 @@ export default function Contact({ lang, t, headingLevel = 'h2' }: Props) {
     setSubmitStatus('idle')
 
     try {
-      // EmailJS keys come from .env.local (see .env.example)
-      const { serviceId, templateId, publicKey } = site.emailjs
-      if (!serviceId || !templateId || !publicKey) throw new Error('EmailJS is not configured')
-
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          company: formData.company,
-          message: formData.message,
-          language: lang,
-          to_email: site.email,
-        },
-        publicKey
-      )
+      // Sent by our own API route (app/api/contact) through the studio's SMTP mailbox
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, lang, website: honeypotRef.current?.value ?? '' }),
+      })
+      if (!res.ok) throw new Error(`Contact API responded ${res.status}`)
 
       setSubmitStatus('success')
       setFormData({ name: '', email: '', company: '', message: '', privacyAccepted: false })
@@ -191,6 +181,12 @@ export default function Contact({ lang, t, headingLevel = 'h2' }: Props) {
                   className="w-full px-4 py-3 bg-dark-card border border-gray-700 rounded-lg text-white focus:outline-none focus:border-electric-blue transition-colors resize-none"
                   placeholder={t.messagePlaceholder}
                 />
+              </div>
+
+              {/* Honeypot — hidden from people, filled only by bots */}
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input ref={honeypotRef} type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
               </div>
 
               {/* Privacy Policy Checkbox */}

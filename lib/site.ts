@@ -10,12 +10,6 @@ export const site = {
   bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL || '',
   // e.g. G-XXXXXXXXXX — Google Analytics loads only after cookie consent
   gaId: process.env.NEXT_PUBLIC_GA_ID || '',
-  // EmailJS (https://www.emailjs.com) — contact form delivery
-  emailjs: {
-    serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
-    templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
-    publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '',
-  },
   // Google Search Console HTML-tag verification code
   googleVerification: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || '',
 }

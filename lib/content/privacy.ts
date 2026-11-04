@@ -41,7 +41,7 @@ const en: PrivacyContent = {
       title: '3. Contact form, email and WhatsApp',
       paragraphs: ['When you contact us, we process the data you provide:'],
       list: [
-        '<strong>Contact form:</strong> name, email address, company (optional) and your message. The form is delivered by EmailJS (EmailJS Pte. Ltd.) to our mailbox.',
+        '<strong>Contact form:</strong> name, email address, company (optional) and your message. The form is sent from our own server through our mail provider lh.pl (LH.pl Sp. z o.o., Poland, EU) to our mailbox.',
         '<strong>Email:</strong> your email address and the content of your message.',
         '<strong>WhatsApp:</strong> if you choose to contact us via WhatsApp, WhatsApp/Meta processes your data according to its own privacy policy.',
       ],
@@ -120,7 +120,7 @@ const de: PrivacyContent = {
       title: '3. Kontaktformular, E-Mail und WhatsApp',
       paragraphs: ['Wenn Sie uns kontaktieren, verarbeiten wir die von Ihnen angegebenen Daten:'],
       list: [
-        '<strong>Kontaktformular:</strong> Name, E-Mail-Adresse, Firma (optional) und Ihre Nachricht. Das Formular wird über EmailJS (EmailJS Pte. Ltd.) an unser Postfach übermittelt.',
+        '<strong>Kontaktformular:</strong> Name, E-Mail-Adresse, Firma (optional) und Ihre Nachricht. Das Formular wird von unserem eigenen Server über unseren E-Mail-Anbieter lh.pl (LH.pl Sp. z o.o., Polen, EU) an unser Postfach übermittelt.',
         '<strong>E-Mail:</strong> Ihre E-Mail-Adresse und der Inhalt Ihrer Nachricht.',
         '<strong>WhatsApp:</strong> Wenn Sie uns über WhatsApp kontaktieren, verarbeitet WhatsApp/Meta Ihre Daten nach eigener Datenschutzerklärung.',
       ],
