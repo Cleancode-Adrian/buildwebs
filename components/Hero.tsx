@@ -7,7 +7,7 @@ import type { Dictionary } from '@/lib/dictionaries'
 
 export default function Hero({ lang, t }: { lang: Locale; t: Dictionary['hero'] }) {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24 md:pt-0 pb-8">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 md:pt-40 pb-16">
       {/* Animated Background */}
       <div className="absolute inset-0 animated-grid opacity-30" />
       <div className="absolute inset-0 bg-hero-gradient" />
@@ -24,7 +24,7 @@ export default function Hero({ lang, t }: { lang: Locale; t: Dictionary['hero'] 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-block mb-6 mt-24 md:mt-0"
+            className="inline-block mb-6"
           >
             <span className="inline-block max-w-full px-4 py-2 bg-electric-blue/10 border border-electric-blue/30 rounded-full text-electric-blue-light text-sm font-semibold">
               {t.badge}
