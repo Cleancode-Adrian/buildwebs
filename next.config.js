@@ -13,7 +13,8 @@ const nextConfig = {
 
   // Performance optimizations
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    // Strip console.log in production but keep console.error (API route failures go to PM2 logs)
+    removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error'] } : false,
   },
 
   // Optimize imports for better tree-shaking

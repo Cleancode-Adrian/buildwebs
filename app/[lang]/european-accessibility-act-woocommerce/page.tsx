@@ -29,7 +29,7 @@ export default function EaaWooCommercePage({ params }: { params: { lang: Locale 
       url,
       areaServed: { '@type': 'Place', name: 'European Union' },
       provider: { '@id': `${site.url}/#organization` },
-      offers: { '@type': 'Offer', price: '490', priceCurrency: 'EUR' },
+      offers: { '@type': 'Offer', price: '100', priceCurrency: 'EUR' },
     },
     {
       '@context': 'https://schema.org',

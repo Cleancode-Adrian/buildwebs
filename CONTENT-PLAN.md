@@ -14,7 +14,7 @@ niemieckie katalogi, ceny w formacie 1.500 €), nie tłumaczenie słowo w słow
 - **Zero wymyślonych statystyk, wyników klientów i nazw klientów.** Doświadczenie opisujemy ogólnie
   („problem, który najczęściej widzimy w audytach”). Liczby tylko powszechnie znane i przypisane do źródła.
 - O BuildWebs tylko prawda: małe studio z Polski (UE), WordPress i WooCommerce, pakiety opieki od 49 €/mies.,
-  naprawy od 290 €, audyt WCAG od 490 €, darmowy mini-check EAA, zdalnie, stałe ceny. Bez Next.js/React/Laravel.
+  naprawy od 290 €, audyt WCAG od 100 €, darmowy mini-check EAA, zdalnie, stałe ceny. Bez Next.js/React/Laravel.
 - 2–3 linki wewnętrzne do podstron usług, 1 CTA na końcu. Żadnych obietnic „#1 w Google”.
 - Meta title ≤ 60 znaków, meta description ≤ 155 znaków z główną frazą.
 - Wpisy poniżej 600 słów dostają automatycznie `noindex` i nie trafiają do listy ani sitemap.

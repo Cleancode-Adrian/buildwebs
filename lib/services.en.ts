@@ -180,7 +180,7 @@ export const servicesEn: Service[] = [
     tagline: 'Get your website and store ready for the European Accessibility Act.',
     description:
       'Since 28 June 2025 the European Accessibility Act (EAA) requires many online stores and digital services in the EU to be accessible. We audit your website against WCAG 2.2 AA, fix the issues and prepare your accessibility statement.',
-    priceFrom: '€490',
+    priceFrom: '€100',
     priceNote: 'audit — implementation quoted after the audit',
     timeline: 'Audit in 5–7 business days',
     featuredLink: {
@@ -190,7 +190,7 @@ export const servicesEn: Service[] = [
     },
     metaTitle: 'WCAG 2.2 Audit & European Accessibility Act Compliance | BuildWebs',
     metaDescription:
-      'Web accessibility audits and fixes for EU businesses. WCAG 2.2 AA, European Accessibility Act (EAA) readiness, accessibility statement. Audit from €490.',
+      'Web accessibility audits and fixes for EU businesses. WCAG 2.2 AA, European Accessibility Act (EAA) readiness, accessibility statement. Audit from €100.',
     idealFor: [
       'Online stores selling to EU consumers',
       'Banking, booking, travel and e-service providers',

@@ -149,6 +149,6 @@ export const post: BlogPost = {
 
       <p>If you would rather have someone else do the first pass, we offer a <a href="/european-accessibility-act-woocommerce">free accessibility mini-check for online stores</a>: we review your homepage, one product page and your checkout and send you the three most serious issues within two business days, no obligation.</p>
 
-      <p>For the complete picture, our <a href="/services/web-accessibility">WCAG 2.2 AA accessibility audit</a> starts at €490. Because we build <a href="/services/woocommerce-stores">WooCommerce stores</a> ourselves, we implement the fixes directly in the theme and checkout rather than handing you a report, and we draft the accessibility statement for you to publish. Remote, at fixed prices.</p>
+      <p>For the complete picture, our <a href="/services/web-accessibility">WCAG 2.2 AA accessibility audit</a> starts at €100. Because we build <a href="/services/woocommerce-stores">WooCommerce stores</a> ourselves, we implement the fixes directly in the theme and checkout rather than handing you a report, and we draft the accessibility statement for you to publish. Remote, at fixed prices.</p>
     `,
 }

@@ -149,6 +149,6 @@ export const post: BlogPost = {
 
       <p>Wenn Sie den ersten Durchgang lieber abgeben möchten: Wir bieten einen <a href="/de/european-accessibility-act-woocommerce">kostenlosen Barrierefreiheits-Mini-Check für Onlineshops</a> an – wir prüfen Ihre Startseite, eine Produktseite und Ihren Checkout und schicken Ihnen innerhalb von zwei Werktagen die drei gravierendsten Probleme, unverbindlich.</p>
 
-      <p>Für das vollständige Bild gibt es unser <a href="/de/services/web-accessibility">WCAG-2.2-AA-Audit</a> ab 490 €. Da wir selbst <a href="/de/services/woocommerce-stores">WooCommerce-Shops</a> bauen, setzen wir die Korrekturen direkt im Theme und im Checkout um, statt Ihnen nur einen Bericht zu übergeben, und erstellen den Entwurf Ihrer Erklärung zur Barrierefreiheit. Remote, zu Festpreisen.</p>
+      <p>Für das vollständige Bild gibt es unser <a href="/de/services/web-accessibility">WCAG-2.2-AA-Audit</a> ab 100 €. Da wir selbst <a href="/de/services/woocommerce-stores">WooCommerce-Shops</a> bauen, setzen wir die Korrekturen direkt im Theme und im Checkout um, statt Ihnen nur einen Bericht zu übergeben, und erstellen den Entwurf Ihrer Erklärung zur Barrierefreiheit. Remote, zu Festpreisen.</p>
     `,
 }

@@ -7,7 +7,7 @@
 - [Fast Business Websites](https://buildwebs.eu/services/business-websites): custom WordPress company websites, mobile-first, SEO-ready, multilingual on request. From €800, 2–4 weeks. German: https://buildwebs.eu/de/services/business-websites
 - [WooCommerce Online Stores](https://buildwebs.eu/services/woocommerce-stores): stores with Mollie/Stripe payments (iDEAL, Bancontact, Klarna, SEPA), EU VAT, shipping integrations, migrations from Shopify/Wix. From €1,500. German: https://buildwebs.eu/de/services/woocommerce-stores
 - [Website Care, Fixes & Rescue](https://buildwebs.eu/services/website-care): WordPress maintenance plans (€49 / €99 / €199 per month), hacked-site recovery, taking over sites from unresponsive developers, migrations, speed optimisation. One-off fixes from €290. German: https://buildwebs.eu/de/services/website-care
-- [Web Accessibility (WCAG & EAA)](https://buildwebs.eu/services/web-accessibility): WCAG 2.2 AA audits from €490, fixes and accessibility statements. German: https://buildwebs.eu/de/services/web-accessibility
+- [Web Accessibility (WCAG & EAA)](https://buildwebs.eu/services/web-accessibility): WCAG 2.2 AA audits from €100, fixes and accessibility statements. German: https://buildwebs.eu/de/services/web-accessibility
 - [European Accessibility Act for WooCommerce](https://buildwebs.eu/european-accessibility-act-woocommerce): EAA scope, common WooCommerce accessibility issues, free mini-check of 3 pages. German (BFSG): https://buildwebs.eu/de/european-accessibility-act-woocommerce
 
 ## About

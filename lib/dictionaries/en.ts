@@ -178,7 +178,7 @@ export const en = {
   servicesPage: {
     metaTitle: 'Services & Prices: Websites, WooCommerce, Care Plans, WCAG | BuildWebs.eu',
     metaDescription:
-      'Business websites from €800, WooCommerce stores from €1,500, WordPress care plans from €49/month and WCAG accessibility audits from €490. Fixed prices for EU businesses.',
+      'Business websites from €800, WooCommerce stores from €1,500, WordPress care plans from €49/month and WCAG accessibility audits from €100. Fixed prices for EU businesses.',
     titleBefore: 'Our',
     titleHighlight: 'Services',
     subtitle: 'Four focused services with clear, fixed prices — built for small businesses across Europe',
@@ -298,7 +298,7 @@ export const en = {
       },
       {
         name: 'Full EAA audit',
-        price: '€490',
+        price: '€100',
         description: 'A complete manual + automated audit of your store against WCAG 2.2 AA.',
         features: ['Key templates: home, category, product, cart, checkout, account', 'Keyboard and screen reader testing (NVDA, VoiceOver)', 'Prioritised report with how-to-fix notes', 'Fixed quote for implementation'],
         cta: 'Order an audit',

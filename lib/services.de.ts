@@ -180,7 +180,7 @@ export const servicesDe: Service[] = [
     tagline: 'Machen Sie Ihre Webseite und Ihren Shop fit für das Barrierefreiheitsstärkungsgesetz.',
     description:
       'Seit dem 28. Juni 2025 müssen viele Onlineshops und digitale Dienstleistungen in der EU barrierefrei sein – in Deutschland geregelt durch das Barrierefreiheitsstärkungsgesetz (BFSG), das den European Accessibility Act umsetzt. Wir prüfen Ihre Webseite nach WCAG 2.2 AA, beheben die Mängel und erstellen Ihre Barrierefreiheitserklärung.',
-    priceFrom: '490 €',
+    priceFrom: '100 €',
     priceNote: 'Audit – Umsetzung als Festpreis nach dem Audit',
     timeline: 'Audit in 5–7 Werktagen',
     featuredLink: {
@@ -190,7 +190,7 @@ export const servicesDe: Service[] = [
     },
     metaTitle: 'Barrierefreiheit nach BFSG & WCAG 2.2 – Audit & Umsetzung | BuildWebs',
     metaDescription:
-      'Barrierefreiheits-Audits und Umsetzung für Unternehmen: WCAG 2.2 AA, Barrierefreiheitsstärkungsgesetz (BFSG) / European Accessibility Act, Barrierefreiheitserklärung. Audit ab 490 €.',
+      'Barrierefreiheits-Audits und Umsetzung für Unternehmen: WCAG 2.2 AA, Barrierefreiheitsstärkungsgesetz (BFSG) / European Accessibility Act, Barrierefreiheitserklärung. Audit ab 100 €.',
     idealFor: [
       'Onlineshops, die an Verbraucher in der EU verkaufen',
       'Banken, Buchungs-, Reise- und E-Service-Anbieter',

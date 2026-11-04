@@ -178,7 +178,7 @@ export const de: Dictionary = {
   servicesPage: {
     metaTitle: 'Leistungen & Preise: Webseiten, WooCommerce, Wartung, Barrierefreiheit | BuildWebs',
     metaDescription:
-      'Firmenwebseiten ab 800 €, WooCommerce-Shops ab 1.500 €, WordPress-Wartung ab 49 €/Monat und Barrierefreiheits-Audits nach BFSG ab 490 €. Festpreise für Unternehmen.',
+      'Firmenwebseiten ab 800 €, WooCommerce-Shops ab 1.500 €, WordPress-Wartung ab 49 €/Monat und Barrierefreiheits-Audits nach BFSG ab 100 €. Festpreise für Unternehmen.',
     titleBefore: 'Unsere',
     titleHighlight: 'Leistungen',
     subtitle: 'Vier klare Leistungen mit verbindlichen Festpreisen – für kleine Unternehmen in ganz Europa',
@@ -301,7 +301,7 @@ export const de: Dictionary = {
       },
       {
         name: 'Vollständiges BFSG-Audit',
-        price: '490 €',
+        price: '100 €',
         description: 'Ein vollständiges manuelles und automatisiertes Audit Ihres Shops nach WCAG 2.2 AA.',
         features: ['Wichtige Vorlagen: Start, Kategorie, Produkt, Warenkorb, Checkout, Konto', 'Tests mit Tastatur und Screenreader (NVDA, VoiceOver)', 'Priorisierter Bericht mit Lösungshinweisen', 'Festpreis für die Umsetzung'],
         cta: 'Audit beauftragen',
